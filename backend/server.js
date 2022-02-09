@@ -1,7 +1,11 @@
 const express = require('express');
+const colors = require('colors');
 const dotenv = require('dotenv').config(); // Allows us to have our .env files with our variables in it.
 const { errorHandler } = require('./middleware/errorMiddleware');
+const connectDB = require('./config/db');
 const port = process.env.PORT || 5000; // Allows us to access the PORT number in our .env file or the other port number that we've set.
+
+connectDB(); // Connects to the database
 
 const app = express(); // Initializes express
 
