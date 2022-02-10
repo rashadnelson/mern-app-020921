@@ -7,12 +7,13 @@ const port = process.env.PORT || 5000; // Allows us to access the PORT number in
 
 connectDB(); // Connects to the database
 
-const app = express(); // Initializes express
+const app = express(); // Initializes express for the API build
 
 app.use(express.json()); // Middleware - bodyparser - allow you to send body data.  Test using Postman.
 app.use(express.urlencoded({ extended: false })); // Middleware - allows you to send urlencoded data.  Test using Postman.
 
 app.use('/api/goals', require('./routes/goalRoutes'));
+app.use('/api/users', require('./routes/userRoutes'));
 
 app.use(errorHandler);
 
